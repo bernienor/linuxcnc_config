@@ -56,7 +56,7 @@ net xenable         => parport.0.pin-17-out
 
 #Home og limit switches:
 net  home-xy <= parport.0.pin-13-in
-net  home_uv <= parport.0.pin-15-in
+net  home-uv <= parport.0.pin-15-in
 #net min-home-y <= parport.0.pin-11-in
 #net min-home-z <= parport.0.pin-12-in-not
 #net probe-in <= parport.0.pin-13-in
