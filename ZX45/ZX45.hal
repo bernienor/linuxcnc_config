@@ -32,7 +32,9 @@ net spindle-at-speed => motion.spindle-at-speed
 net spindle-cw <= motion.spindle-forward
 
 #Av/paa for steppermotordriverne. Ikke i bruk 3/12-14
-net estop-out => parport.0.pin-01-out
+net xenable => parport.0.pin-17-out
+#net estop-out => parport.0.pin-17-out
+
 
 #X-akse step utganger.
 net xstep => parport.0.pin-02-out
@@ -49,7 +51,7 @@ net zstep => parport.0.pin-06-out
 setp parport.0.pin-06-out-reset 1
 net zdir => parport.0.pin-07-out
 
-#A-akse step utganger. Ikke i bruke 3/12-14
+#A-akse step utganger. Ikke i bruk 3/12-14
 net astep => parport.0.pin-08-out
 setp parport.0.pin-08-out-reset 1
 net adir => parport.0.pin-09-out
@@ -58,7 +60,7 @@ net adir => parport.0.pin-09-out
 #Motordriver - ikke i bruk 3/12-14
 net spindle-cw => parport.0.pin-14-out
 net spindle-pwm => parport.0.pin-16-out
-net xenable => parport.0.pin-17-out
+
 
 #Home og limit switches:
 net both-home-x <= parport.0.pin-10-in
