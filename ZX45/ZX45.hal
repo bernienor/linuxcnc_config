@@ -21,21 +21,24 @@ addf motion-controller servo-thread
 addf stepgen.update-freq servo-thread
 addf pwmgen.update servo-thread
 
+
+# Fw og rev skal være pin 14 og 17, men benytter pin08 midlertidig BHH 11/8-15
 net spindle-cmd <= motion.spindle-speed-out => pwmgen.0.value
 net spindle-on <= motion.spindle-on => pwmgen.0.enable
-net spindle-on => parport.0.pin-17-out
-setp parport.0.pin-17-out-invert 1
+net spindle-fwd <= motion.spindle-forward => parport.0.pin-08-out
+setp parport.0.pin-08-out-invert 1
+#net spindle-rev <= motion.spindle-reverse => parport.0.pin-14-out
+
 net spindle-pwm <= pwmgen.0.pwm
 setp pwmgen.0.pwm-freq 100.0
 setp pwmgen.0.scale 1166.66666667
 setp pwmgen.0.offset 0.114285714286
 setp pwmgen.0.dither-pwm true
 net spindle-at-speed => motion.spindle-at-speed
-net spindle-cw <= motion.spindle-forward
-net spindle-cw => parport.0.pin-14-out
-setp parport.0.pin-14-out-invert 1
 
-#Av/paa for steppermotordriverne. Ikke i bruk 3/12-14
+
+
+#Av/paa for steppermotordriverne.
 net xenable => parport.0.pin-01-out
 
 
@@ -55,13 +58,12 @@ setp parport.0.pin-06-out-reset 1
 net zdir => parport.0.pin-07-out
 
 #A-akse step utganger. Ikke i bruk 3/12-14
-net astep => parport.0.pin-08-out
-setp parport.0.pin-08-out-reset 1
-net adir => parport.0.pin-09-out
+#net astep => parport.0.pin-08-out
+#setp parport.0.pin-08-out-reset 1
+#net adir => parport.0.pin-09-out
 
 
-#Motordriver - ikke i bruk 3/12-14
-net spindle-cw => parport.0.pin-14-out
+#Motordriver 
 net spindle-pwm => parport.0.pin-16-out
 
 

@@ -28,5 +28,8 @@ net pin13 => ptest.led-13
 #net pin15 parport.0.pin-15-in ptest.led-15
 net estop-ext => ptest.led-15
 
-
+#Test p14
+#net spindle-fwd <= 14-chkbtn => parport.0.pin-14-out
+#net spindle-rev <= 17-chkbtn => parport.0.pin-17-out
+ 
 

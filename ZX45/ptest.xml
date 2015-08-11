@@ -71,4 +71,14 @@
       <font>("Helvetica",14)</font>
     </label>
   </hbox>
+<checkbutton>
+    <halpin>"14-chkbtn"</halpin>
+    <text>"Par pin 14   "</text>
+    <initval>1</initval>
+</checkbutton>
+<checkbutton>
+    <halpin>"17-chkbtn"</halpin>
+    <text>"Par pin 17   "</text>
+    <initval>0</initval>
+</checkbutton>
 </pyvcp>
