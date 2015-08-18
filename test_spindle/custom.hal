@@ -1,0 +1,35 @@
+# Include your customized HAL commands here
+# This file will not be overwritten when you run stepconf again
+
+# loadrt parport is done in the main hal-file. no need to redo.
+#loadrt hal_parport cfg="0x378 out"
+loadusr -Wn ptest pyvcp -c ptest ptest.xml
+loadrt threads name1=porttest period1=1000000
+#
+
+# The parport is already set up in the main HAL-file. We need to tap into thouse definitions.
+#addf parport.0.read porttest
+#addf parport.0.write porttest
+#net pin01 ptest.btn01 parport.0.pin-01-out ptest.led-01
+#net pin02 ptest.btn02 parport.0.pin-02-out ptest.led-02
+
+#net xstep => parport.0.pin-02-out
+net both-home-x => ptest.led-10
+
+#net pin11 <= parport.0.pin-11-in
+net min-home-y => ptest.led-11
+
+net pin12 <= parport.0.pin-12-in
+net pin12 => ptest.led-12
+
+net pin13 <= parport.0.pin-13-in
+net pin13 => ptest.led-13
+
+#net pin15 parport.0.pin-15-in ptest.led-15
+net estop-ext => ptest.led-15
+
+#Test p14
+#net spindle-fwd <= 14-chkbtn => parport.0.pin-14-out
+#net spindle-rev <= 17-chkbtn => parport.0.pin-17-out
+ 
+
