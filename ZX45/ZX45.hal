@@ -71,7 +71,8 @@ net spindle-pwm => parport.0.pin-16-out
 net both-home-x <= parport.0.pin-10-in
 net min-home-y <= parport.0.pin-11-in
 #net min-home-z <= parport.0.pin-12-in-not
-#net probe-in <= parport.0.pin-13-in
+net probe-in <= parport.0.pin-13-in-not
+net probe-in => motion.probe-input
 net estop-ext <= parport.0.pin-15-in
 
 
