@@ -70,7 +70,7 @@ net spindle-pwm => parport.0.pin-16-out
 #Home og limit switches:
 net both-home-x <= parport.0.pin-10-in
 net min-home-y <= parport.0.pin-11-in
-#net min-home-z <= parport.0.pin-12-in-not
+net min-home-z <= parport.0.pin-12-in
 net probe-in <= parport.0.pin-13-in-not
 net probe-in => motion.probe-input
 net estop-ext <= parport.0.pin-15-in
@@ -121,7 +121,7 @@ net zpos-fb stepgen.2.position-fb => axis.2.motor-pos-fb
 net zstep <= stepgen.2.step
 net zdir <= stepgen.2.dir
 net zenable axis.2.amp-enable-out => stepgen.2.enable
-
+net min-home-z => axis.2.home-sw-in
 
 # Nodstopp
 net estop-out <= iocontrol.0.user-enable-out

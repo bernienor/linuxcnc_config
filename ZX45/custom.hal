@@ -19,8 +19,8 @@ net both-home-x => ptest.led-10
 #net pin11 <= parport.0.pin-11-in
 net min-home-y => ptest.led-11
 
-net pin12 <= parport.0.pin-12-in
-net pin12 => ptest.led-12
+#net pin12 <= parport.0.pin-12-in
+net min-home-z => ptest.led-12
 
 #net pin13 <= parport.0.pin-13-in
 net probe-in => ptest.led-13
