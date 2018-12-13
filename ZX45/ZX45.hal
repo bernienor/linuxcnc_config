@@ -29,10 +29,25 @@ net spindle-fwd <= motion.spindle-forward => parport.0.pin-08-out
 setp parport.0.pin-08-out-invert 1
 #net spindle-rev <= motion.spindle-reverse => parport.0.pin-14-out
 
+
 net spindle-pwm <= pwmgen.0.pwm
 setp pwmgen.0.pwm-freq 100.0
-setp pwmgen.0.scale 1166.66666667
-setp pwmgen.0.offset 0.114285714286
+
+# pwm scal and offset: dc = (value/scale) + offset. 1.0 = 100%
+# 1166.6666667, offset 0.114285 -> S1000 gir 100% ut
+# setp pwmgen.0.scale 1166.66666667
+# setp pwmgen.0.offset 0.114285714286
+
+setp pwmgen.0.offset -0.051469
+
+setp pwmgen.0.scale 3474.0 # testing # Gir H-3
+#setp pwmgen.0.scale 1853.0 # testing # Gir H-2
+#setp pwmgen.0.scale 1042.0 # testing # Gir H-1
+#setp pwmgen.0.scale 540.0 # testing # Gir L-3
+#setp pwmgen.0.scale 328.0 # testing # Gir L-2
+#setp pwmgen.0.scale 145.0 # testing # Gir L-1
+
+
 setp pwmgen.0.dither-pwm true
 net spindle-at-speed => motion.spindle-at-speed
 
