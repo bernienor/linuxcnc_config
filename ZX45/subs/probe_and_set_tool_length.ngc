@@ -1,0 +1,14 @@
+(Macro for probing and setting the tool length )
+(of current tool                               )
+()
+(Tool Setter height:47)
+(Tool setter position G59 X0 Y0)
+
+
+o<probe_and_set_tool_length>sub
+(  G59)
+(  G0 X0 Y0)
+  G38.2 F100 Z40
+
+o<probe_and_set_tool_length>endsub
+M2
